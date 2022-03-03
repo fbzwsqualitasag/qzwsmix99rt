@@ -1,0 +1,15 @@
+#------------------------------------------------------------------
+#                              CLIM
+#           Command file for a simple animal model analysis.
+#             MODEL:  phen = sex + animal
+#------------------------------------------------------------------
+DATAFILE  p1_data_001.dat        # Data file
+MISSING -99999.0        # Number for missing real number
+INTEGER   animal sex    # Integer column names
+REAL      phen          # Real column names
+PEDFILE   p1_data_001.ped        # Pedigree file
+PEDIGREE  animal am     # Genetics associated with animal code: am=animal model 
+PARFILE   p1_data_001.var        # Variance component file
+PRECON b f              # Preconditioner: b=block
+MODEL
+  phen = sex animal # The model
