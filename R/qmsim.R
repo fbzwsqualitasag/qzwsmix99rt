@@ -18,8 +18,7 @@ read_qmsim <- function(ps_path){
   # read the qmsim output file
   n_nr_lines <- as.integer(system(command = paste0("wc -l ", ps_path, " | cut -d ' ' -f1", collapse = ""), intern = TRUE))
   # read qmsim data
-  tbl_qm_data <- readr::read_table(file = ps_path, na = '---', guess_max = n_nr_lines,
-                                   show_col_types = FALSE, progress = FALSE)
+  tbl_qm_data <- readr::read_table(file = ps_path, na = '---', guess_max = n_nr_lines)
 
   # return
   return(tbl_qm_data)
