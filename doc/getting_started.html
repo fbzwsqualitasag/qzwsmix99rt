@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Getting Started With qzwsmix99rt</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Getting Started With qzwsmix99rt</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(qzwsmix99rt)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Loading qzwsmix99rt</span></span></code></pre></div>
+<div id="disclaimer" class="section level1">
+<h1>Disclaimer</h1>
+<p>This package contains a collection of R-functions useful to run MiX99
+from within R. The pre-requisite for this is that MiX99 is installed in
+a path that is reachable via the path environment variable.</p>
+</div>
+<div id="first-example" class="section level1">
+<h1>First Example</h1>
+<p>This package contains an example with which the functionality can be
+tested. The following commands can be used to run the example
+analysis.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test_dir <span class="ot">&lt;-</span> <span class="fu">prepare_example_p1</span>()</span></code></pre></div>
+<p>This copies the required files for the analysis into a temporary
+directory. The following shows a list of these files</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> test_dir)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p1_data_001.clm&quot; &quot;p1_data_001.dat&quot; &quot;p1_data_001.ped&quot; &quot;p1_data_001.var&quot;</span></span></code></pre></div>
+<p>The analysis is run with</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s_log_file <span class="ot">=</span> <span class="fu">file.path</span>(test_dir, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">paste0</span>(<span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;%Y%m%d%H%M%S&quot;</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;_mix99.log&quot;</span>, <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mix99</span>(<span class="at">ps_work_dir =</span> test_dir, <span class="at">ps_log_file =</span> s_log_file)</span></code></pre></div>
+<p>The results and a logfile are written to the working directory</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> test_dir)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;20220309115343_mix99.log&quot; &quot;ARlog&quot;                   </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Conlog&quot;                   &quot;Memlog&quot;                  </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;MiX99_DIR.DIR&quot;            &quot;MiX99_IN.DIR&quot;            </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;MiX99_IN.OPT&quot;             &quot;MiX99.lst&quot;               </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Modlog&quot;                   &quot;OK_mix99i&quot;               </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;OK_mix99s&quot;                &quot;original_blockcode.dat&quot;  </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;p1_data_001.clm&quot;          &quot;p1_data_001.dat&quot;         </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;p1_data_001.ped&quot;          &quot;p1_data_001.var&quot;         </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17] &quot;Parlog&quot;                   &quot;Resid.List&quot;              </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;Solani&quot;                   &quot;Solfix&quot;                  </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [21] &quot;Solvec&quot;                   &quot;Tm10.trco0&quot;              </span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [23] &quot;Tmp0.para&quot;                &quot;Tmp1.code&quot;               </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;Tmp4.pedi0&quot;               &quot;Tmp5.clas0&quot;              </span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [27] &quot;Tmp6.diab0&quot;               &quot;Tmp9.strc&quot;               </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] &quot;Tralog&quot;</span></span></code></pre></div>
+<p>The content of the logfile can be inspected by</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>con_log <span class="ot">&lt;-</span> <span class="fu">file</span>(<span class="at">description =</span> s_log_file)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vec_log <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="at">con =</span> con_log)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(<span class="at">con =</span> con_log)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vec_log, <span class="dv">10</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;  ___________________________________________________________________________ &quot;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [2] &quot; |                                                                           |&quot;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [3] &quot; |                             M   i   X   9  9                              |&quot;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [4] &quot; |                                                                           |&quot;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] &quot; |   release   XI/2019 version 19.1129 (Nov 22 2021 10:15 git b6ac02b) XSN   |&quot;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot; |                                                                           |&quot;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot; |                          P R E P R O C E S S O R                          |&quot;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [8] &quot; |                                                                           |&quot;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] &quot; |   by Martin Lidauer                              Copyright(C) 1998-2019   |&quot;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] &quot; |      Kaarina Matilainen                          All rights reserved      |&quot;</span></span></code></pre></div>
+<p>The end of the logfile</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(vec_log)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;  ___________________________________________________________________________&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2] &quot; &quot;                                                                            </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] &quot;  MiX99_SOLVE:     --- D O N E ---               Time: 11:53:43.7  09.03.2022&quot;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4] &quot;  ___________________________________________________________________________&quot;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot; &quot;                                                                            </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] &quot;         Copyright(C) 2019 Natural Resources Institute Finland (Luke) &quot;</span></span></code></pre></div>
+<p>After the analysis all results can be removed by</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_delete</span>(test_dir)</span></code></pre></div>
+</div>
+<div id="conversion-of-qmsim-output-to-mix99-input" class="section level1">
+<h1>Conversion of QMSim Output to MiX99 Input</h1>
+<p>Given an output file from QMSim, the input files for MiX99 are
+generated. This is done by a conversion function. Currently this works
+only for simple animal models.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s_qm_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;qmsim&quot;</span>, <span class="st">&quot;p1_data_001.txt&quot;</span>, <span class="at">package =</span> <span class="st">&quot;qzwsmix99rt&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>(s_tmp_dir <span class="ot">&lt;-</span> <span class="fu">tempdir</span>())</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;/tmp/RtmpfT9IIp&quot;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>s_out_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(s_tmp_dir, <span class="st">&#39;mix99_work&#39;</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>s_file_stem <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;%Y%m%d%H%M%S&quot;</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                                                         <span class="st">&quot;_mix99&quot;</span>, <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">convert_qmsim_to_mix99</span>(<span class="at">ps_qm_path =</span> s_qm_path, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ps_out_dir =</span> s_out_dir, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ps_file_stem =</span> s_file_stem,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">pl_vcmp      =</span> <span class="fu">list</span>(<span class="at">genetic_variance =</span> <span class="fl">0.1</span>, <span class="at">residual_variance =</span> <span class="fl">0.9</span>))</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cols(</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Progeny = col_double(),</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sire = col_double(),</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Dam = col_double(),</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sex = col_character(),</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   G = col_double(),</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   NMPrg = col_double(),</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   NFPrg = col_double(),</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   F = col_double(),</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Homo = col_double(),</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Phen = col_double(),</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Res = col_double(),</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Polygene = col_double(),</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   QTL = col_double(),</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Final_EBV = col_double()</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; )</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> s_out_dir)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;20220309115343_mix99.clm&quot; &quot;20220309115343_mix99.dat&quot;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] &quot;20220309115343_mix99.ped&quot; &quot;20220309115343_mix99.var&quot;</span></span></code></pre></div>
+<p>The content of the generated data file can be inspected by</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s_data_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(s_out_dir, <span class="fu">paste</span>(s_file_stem, <span class="st">&quot;.dat&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>con_data <span class="ot">&lt;-</span> <span class="fu">file</span>(s_data_path)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>vec_data <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="at">con =</span> con_data)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(<span class="at">con =</span> con_data)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vec_data)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1 1 -99999&quot; &quot;2 1 -99999&quot; &quot;3 1 -99999&quot; &quot;4 1 -99999&quot; &quot;5 1 -99999&quot;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] &quot;6 1 -99999&quot;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(vec_data)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;4990 2 1.414873&quot; &quot;4991 1 -99999&quot;   &quot;4992 2 0.932894&quot; &quot;4993 1 -99999&quot;  </span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;4994 1 -99999&quot;   &quot;4995 1 -99999&quot;</span></span></code></pre></div>
+<p>The content of the pedigree can be viewed by</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s_ped_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(s_out_dir, <span class="fu">paste</span>(s_file_stem, <span class="st">&quot;.ped&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>con_ped <span class="ot">&lt;-</span> <span class="fu">file</span>(s_ped_path)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>vec_ped <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="at">con =</span> con_ped)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(<span class="at">con =</span> con_ped)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vec_ped)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;1 0 0&quot; &quot;2 0 0&quot; &quot;3 0 0&quot; &quot;4 0 0&quot; &quot;5 0 0&quot; &quot;6 0 0&quot;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(vec_ped)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;4990 4070 3121&quot; &quot;4991 3422 3932&quot; &quot;4992 3229 3802&quot; &quot;4993 4326 3114&quot;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;4994 3713 3854&quot; &quot;4995 4439 3384&quot;</span></span></code></pre></div>
+<p>The content of the parameter file</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>s_var_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(s_out_dir, <span class="fu">paste</span>(s_file_stem, <span class="st">&quot;.var&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>con_var <span class="ot">&lt;-</span> <span class="fu">file</span>(s_var_path)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>vec_var <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="at">con =</span> con_var)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(<span class="at">con =</span> con_var)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(vec_var, <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1 1 0.1</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 1 1 0.9</span></span></code></pre></div>
+<p>The clim file</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s_clm_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(s_out_dir, <span class="fu">paste</span>(s_file_stem, <span class="st">&quot;.clm&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>con_clm <span class="ot">&lt;-</span> <span class="fu">file</span>(s_clm_path)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>vec_clm <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="at">con =</span> con_clm)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(<span class="at">con =</span> con_clm)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(vec_clm, <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; DATAFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat </span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MISSING -99999 </span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; INTEGER animal sex</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; REAL      phen</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PEDFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.ped </span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PEDIGREE  animal am</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PARFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.var </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; PRECON b f</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; MODEL</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   phen = sex animal</span></span></code></pre></div>
+</div>
+<div id="running-mix99-on-prepared-data" class="section level1">
+<h1>Running MiX99 on Prepared Data</h1>
+<p>The data prepared so far are now used to run mix99</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s_mix99_log_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(s_out_dir,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">paste0</span>(<span class="fu">format</span>(<span class="fu">Sys.time</span>(), <span class="st">&quot;%Y%m%d%H%M%S&quot;</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">&quot;_mix99.log&quot;</span>, <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">run_mix99</span>(<span class="at">ps_work_dir =</span> s_out_dir, <span class="at">ps_log_file =</span> s_mix99_log_path)</span></code></pre></div>
+<p>The content of the working directory</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="at">path =</span> s_out_dir)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;20220309115343_mix99.clm&quot; &quot;20220309115343_mix99.dat&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;20220309115343_mix99.ped&quot; &quot;20220309115343_mix99.var&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;20220309115344_mix99.log&quot; &quot;ARlog&quot;                   </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Conlog&quot;                   &quot;Memlog&quot;                  </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;MiX99_DIR.DIR&quot;            &quot;MiX99_IN.DIR&quot;            </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [11] &quot;MiX99_IN.OPT&quot;             &quot;MiX99.lst&quot;               </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Modlog&quot;                   &quot;OK_mix99i&quot;               </span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [15] &quot;OK_mix99s&quot;                &quot;original_blockcode.dat&quot;  </span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17] &quot;Parlog&quot;                   &quot;Resid.List&quot;              </span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;Solani&quot;                   &quot;Solfix&quot;                  </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [21] &quot;Solvec&quot;                   &quot;Tm10.trco0&quot;              </span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [23] &quot;Tmp0.para&quot;                &quot;Tmp1.code&quot;               </span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;Tmp4.pedi0&quot;               &quot;Tmp5.clas0&quot;              </span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [27] &quot;Tmp6.diab0&quot;               &quot;Tmp9.strc&quot;               </span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [29] &quot;Tralog&quot;</span></span></code></pre></div>
+<p>The log file is</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>con_mix99_log <span class="ot">&lt;-</span> <span class="fu">file</span>(s_mix99_log_path)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vec_mix99_log <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="at">con =</span> con_mix99_log)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(<span class="at">con =</span> con_mix99_log)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(vec_mix99_log, <span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________ </span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                             M   i   X   9  9                              |</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   release   XI/2019 version 19.1129 (Nov 22 2021 10:15 git b6ac02b) XSN   |</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                          P R E P R O C E S S O R                          |</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   by Martin Lidauer                              Copyright(C) 1998-2019   |</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      Kaarina Matilainen                          All rights reserved      |</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      Ismo Stranden                                                        |</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   Natural Resources Institute Finland (Luke)                              |</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   FI-31600 Jokioinen, Finland                                             |</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   http://www.luke.fi/mix99                       mix99@luke.fi            |</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |     Compiled for: QUALITAS Ltd - Kompetenzzentrum fur Informatik und      |</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                      quantitative Genetik (QUALITAS)                      |</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   When using this program you agree with the following terms and          |</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   conditions. User is responsible for preparing correctly formatted       |</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   data for this program and is responsible for correctness of data        |</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   information. You are not allowed to distribute this program nor         |</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   modified versions of it neither under the same nor under a different    |</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   name. Any decisions based on information given by using this software   |</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   are made at your own responsibility and risk. Only limited technical    |</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   support can be provided. For commercial purposes, valid MiX99 software  |</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   contract is required. Use of MiX99 software should be credited with     |</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   appropriate reference:                                                  |</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   MiX99 Development Team (2019). MiX99: A software package for solving    |</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      large mixed model equations. Release XI/2019. Natural Resources      |</span></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      Institute Finland (Luke). Jokioinen, Finland.                        |</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      URL: http://www.luke.fi/mix99                                        |</span></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________ </span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                   CLIM                                    |</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                         version 0.56 update 11/16                         |</span></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                   Command Language Interface for MiX99                    |</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |  Ismo Stranden                                          Copyright(C) 2019 |</span></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |  Natural Resources Institute Finland (Luke)                               |</span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |  FI-31600 Jokioinen, Finland                                              |</span></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |  http://www.luke.fi/mix99                                                 |</span></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Reading MiX99 command file    =20220309115343_mix99.clm</span></span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Producing MiX99 directive file=MiX99_DIR.DIR</span></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  =======================================</span></span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1 DATAFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2 MISSING -99999</span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3 INTEGER animal sex</span></span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4 REAL      phen</span></span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5 PEDFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.ped</span></span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   6 PEDIGREE  animal am</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   7 PARFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.var</span></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   8 PRECON b f</span></span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   9 MODEL</span></span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  10 phen = sex animal</span></span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  =======================================</span></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Reading Instructions              Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Give title of the analysis</span></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # Generated by CLIM:  version 0.56 update 11/16</span></span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # Time and date         : 11:53    09.03. 2022</span></span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; </span></span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # title</span></span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; MiX99 analysis time: 11:53  09.03.2022</span></span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    MiX99 analysis time: 11:53  09.03.2022</span></span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name of Integer Columns in Data File.</span></span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # INTEGER animal sex</span></span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; animal sex</span></span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    animal   sex     </span></span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name of Real Columns in Data File.</span></span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # REAL      phen</span></span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; phen</span></span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    phen    </span></span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Integer variables:           2</span></span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Real variables:              1</span></span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Traits in the Analysis. &lt;Long Output List.&gt;</span></span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # TRAITS</span></span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1</span></span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             1</span></span>
+<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Trait Groups.</span></span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # TRAITGRP</span></span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1 -</span></span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             1</span></span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Integer Input Column of Block. Pedigree code. &lt;Residual Variance Code&gt;.</span></span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # datasort: Block_code, Relationship_code</span></span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; - -</span></span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Assumed That No Residual Variance Code.</span></span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     -        -        -      </span></span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Automatic data blocking will be applied!</span></span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Pedigree code sorting disabled!</span></span>
+<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Fixed- and Random Effect Factors (Columns) in the Model Line(s).</span></span>
+<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        [ + &lt;Number of Random Effects with a Correlation Structure Provided</span></span>
+<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            in a File (e.g. inverse of an IBD matrix)&gt;</span></span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          + &lt;Number of regression matrices (e.g. SNP effects) &gt;  ]</span></span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # FIXRAN: Numbers of fixed and random factors in the model</span></span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1 1 0 0</span></span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             1           1           0           0</span></span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading MODEL</span></span>
+<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Expected number of model lines:           1</span></span>
+<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # MODEL: Subgr. Trait Weight  ... model factors ...</span></span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1 1 - 2 1</span></span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading BLKORD ...</span></span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # WITHINBLOCKORDER: Order of effects within blocks</span></span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; - 1</span></span>
+<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading RANDOM ...</span></span>
+<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # RANDOM</span></span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1</span></span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading PEDIGR (Inbreeding check!) ...           1           1</span></span>
+<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # RELATIONSHIPS</span></span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # Standard pedigree based relationship matrix</span></span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1   1</span></span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading REGRESS ...</span></span>
+<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # REGRESS</span></span>
+<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 2 cl cl</span></span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Combining of Traits (y/n).</span></span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # COMBINE</span></span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; n</span></span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     n</span></span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Method for Taking Relationships into Account. &lt;Random Phantom Parent Group.&gt;</span></span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # PEDIGREE</span></span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; am</span></span>
+<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    parents: sire &amp; dam,  no phantom parent groups</span></span>
+<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    FILES:</span></span>
+<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ------</span></span>
+<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name of Your Input Data File.</span></span>
+<span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # DATAFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Integer and Real Columns in Data File. File Format. &lt;HV-Pre-Adjustm</span></span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ent.&gt;</span></span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # VAR</span></span>
+<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 2    1 f</span></span>
+<span id="cb16-189"><a href="#cb16-189" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             2           1</span></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    File type: text</span></span>
+<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Code for Missing Real Values in Your Input Data File.</span></span>
+<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # MISSVA</span></span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; -99999</span></span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     -99999.00    </span></span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Data Are Scaled to Units of Residual Variance (y/n).</span></span>
+<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # SCALE</span></span>
+<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; n</span></span>
+<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name of Your Pedigree File.  &lt;Time Classification Column for DYD.&gt;</span></span>
+<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # PEDFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.ped</span></span>
+<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.ped</span></span>
+<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.ped</span></span>
+<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Name of Your Parameter File.</span></span>
+<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # PARFILE /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.var</span></span>
+<span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.var</span></span>
+<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.var</span></span>
+<span id="cb16-214"><a href="#cb16-214" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Directory where Temporary Files Are Stored.</span></span>
+<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # tmpdir</span></span>
+<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; .</span></span>
+<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    .</span></span>
+<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Formatted Solution Files for Random Effects (y/n).</span></span>
+<span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # noransol</span></span>
+<span id="cb16-224"><a href="#cb16-224" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; y</span></span>
+<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Effect | animal  </span></span>
+<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              #  1</span></span>
+<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 y</span></span>
+<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Create Unformatted Solution File &quot;Solunf&quot;?</span></span>
+<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # SOLUNF</span></span>
+<span id="cb16-233"><a href="#cb16-233" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; n</span></span>
+<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    n</span></span>
+<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Preconditioner Types for Within Block (WpW) and Across Block (XpX) Effects:</span></span>
+<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      n    or    {b,d}  {f,m,b,d}</span></span>
+<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Preconditioner type specifications for WpW must be in the</span></span>
+<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    same order as the order of effects within block.</span></span>
+<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # PRECON b f</span></span>
+<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; b f</span></span>
+<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    WpW:        b        XpX:        f</span></span>
+<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-245"><a href="#cb16-245" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Processes. [Work Load Division] [Buffer size in MB]</span></span>
+<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # parallel: Number of processors used by the solver program</span></span>
+<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 1  # Default: no parallel computing</span></span>
+<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             1</span></span>
+<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Blocks Included in Common Area.</span></span>
+<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------------------------</span></span>
+<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; # COMMONBLOCKS: Number of blocks in common area for parallel computing</span></span>
+<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &gt;&gt; 0</span></span>
+<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             0</span></span>
+<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Model Description                 Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    MODEL:</span></span>
+<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    TRAITGRP, TRAIT,   WEIGHT  | EFFECTS</span></span>
+<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ------------------------------------------------</span></span>
+<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        1    phen      -       :  sex      animal  </span></span>
+<span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            Dep.Var  Weight   Num of       Num of Class Variables</span></span>
+<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Trait     Col.    Col.    Covar.    Total       Fixed      Random</span></span>
+<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    -----------------------------------------------------------------</span></span>
+<span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      1      phen      -         2         2           1          1</span></span>
+<span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    RANDOM EFFECTS:</span></span>
+<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    TRAIT       | RANDOM FACTOR</span></span>
+<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------</span></span>
+<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1 phen     | animal  </span></span>
+<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Random no:  1</span></span>
+<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-284"><a href="#cb16-284" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Integer-Input Variables for Across-Block Fixed Effects </span></span>
+<span id="cb16-285"><a href="#cb16-285" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ------------------------------------------------------</span></span>
+<span id="cb16-286"><a href="#cb16-286" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Trait    |  1</span></span>
+<span id="cb16-287"><a href="#cb16-287" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------</span></span>
+<span id="cb16-288"><a href="#cb16-288" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-289"><a href="#cb16-289" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1 phen     | sex     </span></span>
+<span id="cb16-290"><a href="#cb16-290" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-291"><a href="#cb16-291" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-292"><a href="#cb16-292" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Integer-Input Variables for Random Effects</span></span>
+<span id="cb16-293"><a href="#cb16-293" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------</span></span>
+<span id="cb16-294"><a href="#cb16-294" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-295"><a href="#cb16-295" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1 phen     | animal  </span></span>
+<span id="cb16-296"><a href="#cb16-296" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-297"><a href="#cb16-297" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Opening for read:/tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-298"><a href="#cb16-298" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-299"><a href="#cb16-299" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-300"><a href="#cb16-300" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-301"><a href="#cb16-301" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Parameters                        Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-302"><a href="#cb16-302" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-303"><a href="#cb16-303" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-304"><a href="#cb16-304" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-305"><a href="#cb16-305" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Covariance Matrix for Random Effect Number   1   animal  </span></span>
+<span id="cb16-306"><a href="#cb16-306" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------------------------</span></span>
+<span id="cb16-307"><a href="#cb16-307" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 1</span></span>
+<span id="cb16-308"><a href="#cb16-308" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      1     0.100000    </span></span>
+<span id="cb16-309"><a href="#cb16-309" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-310"><a href="#cb16-310" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-311"><a href="#cb16-311" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Residual Co-Variance Matrix</span></span>
+<span id="cb16-312"><a href="#cb16-312" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------</span></span>
+<span id="cb16-313"><a href="#cb16-313" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 1</span></span>
+<span id="cb16-314"><a href="#cb16-314" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      1     0.900000    </span></span>
+<span id="cb16-315"><a href="#cb16-315" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-316"><a href="#cb16-316" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-317"><a href="#cb16-317" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Computation of Total Co-Variance Matrix</span></span>
+<span id="cb16-318"><a href="#cb16-318" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    ---------------------------------------</span></span>
+<span id="cb16-319"><a href="#cb16-319" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-320"><a href="#cb16-320" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Intra Class</span></span>
+<span id="cb16-321"><a href="#cb16-321" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Trait  Correlation     SD-R1       SD-Total</span></span>
+<span id="cb16-322"><a href="#cb16-322" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    -------------------------------------------</span></span>
+<span id="cb16-323"><a href="#cb16-323" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      1     0.10000      0.316228       1.00000    </span></span>
+<span id="cb16-324"><a href="#cb16-324" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-325"><a href="#cb16-325" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Total Co-Variance Matrix</span></span>
+<span id="cb16-326"><a href="#cb16-326" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     ------------------------</span></span>
+<span id="cb16-327"><a href="#cb16-327" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 1</span></span>
+<span id="cb16-328"><a href="#cb16-328" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      1      1.00000    </span></span>
+<span id="cb16-329"><a href="#cb16-329" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-330"><a href="#cb16-330" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-331"><a href="#cb16-331" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-332"><a href="#cb16-332" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-333"><a href="#cb16-333" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Pedigree Recording                Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-334"><a href="#cb16-334" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-335"><a href="#cb16-335" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-336"><a href="#cb16-336" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Pedigree Records Processed ...........      4995</span></span>
+<span id="cb16-337"><a href="#cb16-337" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Blocks in Pedigree File ..............         1</span></span>
+<span id="cb16-338"><a href="#cb16-338" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-339"><a href="#cb16-339" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading data file: /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-340"><a href="#cb16-340" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Blocks in Pedigree and Data File .....         2</span></span>
+<span id="cb16-341"><a href="#cb16-341" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-342"><a href="#cb16-342" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Animal radix tree depth ........................        13</span></span>
+<span id="cb16-343"><a href="#cb16-343" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Optimal tree depth .............................        13</span></span>
+<span id="cb16-344"><a href="#cb16-344" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-345"><a href="#cb16-345" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-346"><a href="#cb16-346" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-347"><a href="#cb16-347" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-348"><a href="#cb16-348" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Start Data Recording              Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-349"><a href="#cb16-349" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-350"><a href="#cb16-350" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-351"><a href="#cb16-351" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading data file: /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-352"><a href="#cb16-352" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-353"><a href="#cb16-353" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Level radix tree depth ...........................           1</span></span>
+<span id="cb16-354"><a href="#cb16-354" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Optimal tree depth ...............................           2</span></span>
+<span id="cb16-355"><a href="#cb16-355" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-356"><a href="#cb16-356" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  DEPENDENT VARIABLES:</span></span>
+<span id="cb16-357"><a href="#cb16-357" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    TR TR-NAME       N-OBS      MEAN        SD       MINIMUM     MAXIMUM</span></span>
+<span id="cb16-358"><a href="#cb16-358" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    --------------------------------------------------------------------</span></span>
+<span id="cb16-359"><a href="#cb16-359" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1  phen            2679  0.20852       1.0297      -3.5751       3.7281    </span></span>
+<span id="cb16-360"><a href="#cb16-360" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-361"><a href="#cb16-361" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of animals with data records..............        4995</span></span>
+<span id="cb16-362"><a href="#cb16-362" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-363"><a href="#cb16-363" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    For Trait  1  Number of Records without Observation        2316</span></span>
+<span id="cb16-364"><a href="#cb16-364" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-365"><a href="#cb16-365" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-366"><a href="#cb16-366" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-367"><a href="#cb16-367" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-368"><a href="#cb16-368" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         First  20 Levels for Across-Block Fixed Effect:  1 sex</span></span>
+<span id="cb16-369"><a href="#cb16-369" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        -------------------------------------------------------------</span></span>
+<span id="cb16-370"><a href="#cb16-370" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Factor Trait ________Code____  Num-Obs Equ.-ID Factor </span></span>
+<span id="cb16-371"><a href="#cb16-371" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              1      1                2     2679      4996 sex</span></span>
+<span id="cb16-372"><a href="#cb16-372" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-373"><a href="#cb16-373" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-374"><a href="#cb16-374" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-375"><a href="#cb16-375" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Animal List in Block Order (First   20 Animals)</span></span>
+<span id="cb16-376"><a href="#cb16-376" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     -------------------------------------------------------------------</span></span>
+<span id="cb16-377"><a href="#cb16-377" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ___Animal-ID____   Num-Obs     Equ.-ID  Rel1-Var  Rel2-Var   Num-Desc</span></span>
+<span id="cb16-378"><a href="#cb16-378" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 1         1         1          0          0        10</span></span>
+<span id="cb16-379"><a href="#cb16-379" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 2         1         2          0          0        30</span></span>
+<span id="cb16-380"><a href="#cb16-380" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 3         1         3          0          0        90</span></span>
+<span id="cb16-381"><a href="#cb16-381" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 4         1         4          0          0        10</span></span>
+<span id="cb16-382"><a href="#cb16-382" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 5         1         5          0          0        20</span></span>
+<span id="cb16-383"><a href="#cb16-383" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 6         1         6          0          0        20</span></span>
+<span id="cb16-384"><a href="#cb16-384" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 7         1         7          0          0        20</span></span>
+<span id="cb16-385"><a href="#cb16-385" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 8         1         8          0          0        10</span></span>
+<span id="cb16-386"><a href="#cb16-386" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 9         1         9          0          0        10</span></span>
+<span id="cb16-387"><a href="#cb16-387" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                10         1        10          0          0        60</span></span>
+<span id="cb16-388"><a href="#cb16-388" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                11         1        11          0          0        10</span></span>
+<span id="cb16-389"><a href="#cb16-389" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                12         1        12          0          0        80</span></span>
+<span id="cb16-390"><a href="#cb16-390" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                13         1        13          0          0        20</span></span>
+<span id="cb16-391"><a href="#cb16-391" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                14         1        14          0          0        40</span></span>
+<span id="cb16-392"><a href="#cb16-392" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                15         1        15          0          0        10</span></span>
+<span id="cb16-393"><a href="#cb16-393" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                16         1        16          0          0        10</span></span>
+<span id="cb16-394"><a href="#cb16-394" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                17         1        17          0          0        20</span></span>
+<span id="cb16-395"><a href="#cb16-395" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                18         1        18          0          0        10</span></span>
+<span id="cb16-396"><a href="#cb16-396" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                19         1        19          0          0        40</span></span>
+<span id="cb16-397"><a href="#cb16-397" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                20         1        20          0          0        10</span></span>
+<span id="cb16-398"><a href="#cb16-398" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                21         1        21          0          0        30</span></span>
+<span id="cb16-399"><a href="#cb16-399" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-400"><a href="#cb16-400" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-401"><a href="#cb16-401" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-402"><a href="#cb16-402" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT:                                   Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-403"><a href="#cb16-403" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Recoding and making equation blocks</span></span>
+<span id="cb16-404"><a href="#cb16-404" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-405"><a href="#cb16-405" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-406"><a href="#cb16-406" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-407"><a href="#cb16-407" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  S T R U C T U R E   O F   M M E</span></span>
+<span id="cb16-408"><a href="#cb16-408" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  =============================================================================</span></span>
+<span id="cb16-409"><a href="#cb16-409" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-410"><a href="#cb16-410" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of General Regression Equations ...............         0</span></span>
+<span id="cb16-411"><a href="#cb16-411" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Across-Block Fixed Equations ...............         1</span></span>
+<span id="cb16-412"><a href="#cb16-412" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Within-Block Fixed Equations ...............         0</span></span>
+<span id="cb16-413"><a href="#cb16-413" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Across-Block Random Equations ..............         0</span></span>
+<span id="cb16-414"><a href="#cb16-414" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Within-Block Random Equations ..............         0</span></span>
+<span id="cb16-415"><a href="#cb16-415" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Animal Equations ...........................      4995</span></span>
+<span id="cb16-416"><a href="#cb16-416" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Total Number of Equations ............................      4996</span></span>
+<span id="cb16-417"><a href="#cb16-417" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-418"><a href="#cb16-418" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of Animals in A-Inverse .......................      4995</span></span>
+<span id="cb16-419"><a href="#cb16-419" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-420"><a href="#cb16-420" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Equation Blocks:                                   From              To</span></span>
+<span id="cb16-421"><a href="#cb16-421" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Within-Block Equations ..........               1            4995</span></span>
+<span id="cb16-422"><a href="#cb16-422" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Across-Block Fixed Equations ....            4996            4996</span></span>
+<span id="cb16-423"><a href="#cb16-423" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-424"><a href="#cb16-424" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Preconditioner information:</span></span>
+<span id="cb16-425"><a href="#cb16-425" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Accross block fixed    : full</span></span>
+<span id="cb16-426"><a href="#cb16-426" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       1. within block effect : block diagonal</span></span>
+<span id="cb16-427"><a href="#cb16-427" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-428"><a href="#cb16-428" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       Blocking of data among processes:</span></span>
+<span id="cb16-429"><a href="#cb16-429" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       ---------------------------------</span></span>
+<span id="cb16-430"><a href="#cb16-430" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       LastBlock =           2</span></span>
+<span id="cb16-431"><a href="#cb16-431" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-432"><a href="#cb16-432" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-433"><a href="#cb16-433" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-434"><a href="#cb16-434" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Create Work Files for IOD         Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-435"><a href="#cb16-435" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-436"><a href="#cb16-436" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-437"><a href="#cb16-437" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-438"><a href="#cb16-438" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-439"><a href="#cb16-439" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-440"><a href="#cb16-440" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Matrices for the preconditioner   Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-441"><a href="#cb16-441" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-442"><a href="#cb16-442" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-443"><a href="#cb16-443" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Reading data file: /tmp/RtmpfT9IIp/mix99_work/20220309115343_mix99.dat</span></span>
+<span id="cb16-444"><a href="#cb16-444" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-445"><a href="#cb16-445" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Total number of data file records     :        4995</span></span>
+<span id="cb16-446"><a href="#cb16-446" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of accepted data file records  :        2679</span></span>
+<span id="cb16-447"><a href="#cb16-447" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Number of blocks                      :           2</span></span>
+<span id="cb16-448"><a href="#cb16-448" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Last data file record by process      :        4995</span></span>
+<span id="cb16-449"><a href="#cb16-449" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-450"><a href="#cb16-450" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-451"><a href="#cb16-451" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-452"><a href="#cb16-452" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-453"><a href="#cb16-453" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT: Create Preconditioner             Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-454"><a href="#cb16-454" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-455"><a href="#cb16-455" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-456"><a href="#cb16-456" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Number of block contrib. in Precond. of within blocks.      2679</span></span>
+<span id="cb16-457"><a href="#cb16-457" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-458"><a href="#cb16-458" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Inverting and Writing Diagonal Blocks .....</span></span>
+<span id="cb16-459"><a href="#cb16-459" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-460"><a href="#cb16-460" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Number of Levels with Across-Block Contributions .....      2679</span></span>
+<span id="cb16-461"><a href="#cb16-461" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Number of Equations with Across-Block Contributions ..      2679</span></span>
+<span id="cb16-462"><a href="#cb16-462" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-463"><a href="#cb16-463" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Memory Requirements (MB) for mix99s:</span></span>
+<span id="cb16-464"><a href="#cb16-464" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           ------------------------------------</span></span>
+<span id="cb16-465"><a href="#cb16-465" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Data and Model Information .....               1</span></span>
+<span id="cb16-466"><a href="#cb16-466" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           I/O-Buffer .....................               1</span></span>
+<span id="cb16-467"><a href="#cb16-467" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Vectors ........................               1</span></span>
+<span id="cb16-468"><a href="#cb16-468" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                 ----------</span></span>
+<span id="cb16-469"><a href="#cb16-469" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           Total Allocated Memory .........               3</span></span>
+<span id="cb16-470"><a href="#cb16-470" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-471"><a href="#cb16-471" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-472"><a href="#cb16-472" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-473"><a href="#cb16-473" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_INPUT:     --- D O N E ---               Time: 11:53:44.6  09.03.2022</span></span>
+<span id="cb16-474"><a href="#cb16-474" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-475"><a href="#cb16-475" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-476"><a href="#cb16-476" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Copyright(C) 2019 Natural Resources Institute Finland (Luke)</span></span>
+<span id="cb16-477"><a href="#cb16-477" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________ </span></span>
+<span id="cb16-478"><a href="#cb16-478" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-479"><a href="#cb16-479" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                           M   i   X   9   9   s                           |</span></span>
+<span id="cb16-480"><a href="#cb16-480" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-481"><a href="#cb16-481" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   release   XI/2019 version 19.1129 (Nov 22 2021 10:15 git b6ac02b) XSN   |</span></span>
+<span id="cb16-482"><a href="#cb16-482" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-483"><a href="#cb16-483" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |          M I X E D   M O D E L   E Q U A T I O N S   S O L V E R          |</span></span>
+<span id="cb16-484"><a href="#cb16-484" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-485"><a href="#cb16-485" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |            General Program for Large Mixed Model Problems with            |</span></span>
+<span id="cb16-486"><a href="#cb16-486" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                 Preconditioned Conjugate Gradient Method                  |</span></span>
+<span id="cb16-487"><a href="#cb16-487" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-488"><a href="#cb16-488" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   by Martin Lidauer                              Copyright(C) 1998-2019   |</span></span>
+<span id="cb16-489"><a href="#cb16-489" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      Kaarina Matilainen                          All rights reserved      |</span></span>
+<span id="cb16-490"><a href="#cb16-490" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      Ismo Stranden                                                        |</span></span>
+<span id="cb16-491"><a href="#cb16-491" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   Natural Resources Institute Finland (Luke)                              |</span></span>
+<span id="cb16-492"><a href="#cb16-492" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   FI-31600 Jokioinen, Finland                                             |</span></span>
+<span id="cb16-493"><a href="#cb16-493" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   http://www.luke.fi/mix99                       mix99@luke.fi            |</span></span>
+<span id="cb16-494"><a href="#cb16-494" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-495"><a href="#cb16-495" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |     Compiled for: QUALITAS Ltd - Kompetenzzentrum fur Informatik und      |</span></span>
+<span id="cb16-496"><a href="#cb16-496" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                      quantitative Genetik (QUALITAS)                      |</span></span>
+<span id="cb16-497"><a href="#cb16-497" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-498"><a href="#cb16-498" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-499"><a href="#cb16-499" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   When using this program you agree with the following terms and          |</span></span>
+<span id="cb16-500"><a href="#cb16-500" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   conditions. User is responsible for preparing correctly formatted       |</span></span>
+<span id="cb16-501"><a href="#cb16-501" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   data for this program and is responsible for correctness of data        |</span></span>
+<span id="cb16-502"><a href="#cb16-502" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   information. You are not allowed to distribute this program nor         |</span></span>
+<span id="cb16-503"><a href="#cb16-503" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   modified versions of it neither under the same nor under a different    |</span></span>
+<span id="cb16-504"><a href="#cb16-504" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   name. Any decisions based on information given by using this software   |</span></span>
+<span id="cb16-505"><a href="#cb16-505" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   are made at your own responsibility and risk. Only limited technical    |</span></span>
+<span id="cb16-506"><a href="#cb16-506" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   support can be provided. For commercial purposes, valid MiX99 software  |</span></span>
+<span id="cb16-507"><a href="#cb16-507" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   contract is required. Use of MiX99 software should be credited with     |</span></span>
+<span id="cb16-508"><a href="#cb16-508" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   appropriate reference:                                                  |</span></span>
+<span id="cb16-509"><a href="#cb16-509" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-510"><a href="#cb16-510" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |   MiX99 Development Team (2019). MiX99: A software package for solving    |</span></span>
+<span id="cb16-511"><a href="#cb16-511" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      large mixed model equations. Release XI/2019. Natural Resources      |</span></span>
+<span id="cb16-512"><a href="#cb16-512" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      Institute Finland (Luke). Jokioinen, Finland.                        |</span></span>
+<span id="cb16-513"><a href="#cb16-513" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |      URL: http://www.luke.fi/mix99                                        |</span></span>
+<span id="cb16-514"><a href="#cb16-514" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-515"><a href="#cb16-515" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-516"><a href="#cb16-516" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-517"><a href="#cb16-517" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-518"><a href="#cb16-518" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________ </span></span>
+<span id="cb16-519"><a href="#cb16-519" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |                                                                           |</span></span>
+<span id="cb16-520"><a href="#cb16-520" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  | MiX99 analysis time: 11:53  09.03.2022                                    |</span></span>
+<span id="cb16-521"><a href="#cb16-521" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  |___________________________________________________________________________|</span></span>
+<span id="cb16-522"><a href="#cb16-522" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-523"><a href="#cb16-523" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Preconditioner information:</span></span>
+<span id="cb16-524"><a href="#cb16-524" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-525"><a href="#cb16-525" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     XpX : f  across block fixed</span></span>
+<span id="cb16-526"><a href="#cb16-526" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     WPW : F  within block effects</span></span>
+<span id="cb16-527"><a href="#cb16-527" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     T= diagonal, F= block diagonal</span></span>
+<span id="cb16-528"><a href="#cb16-528" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-529"><a href="#cb16-529" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Number of traits in the model :           1</span></span>
+<span id="cb16-530"><a href="#cb16-530" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Size of genetic (co)var matrix:           1</span></span>
+<span id="cb16-531"><a href="#cb16-531" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-532"><a href="#cb16-532" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     ___________________ Parameters ___________________________________________</span></span>
+<span id="cb16-533"><a href="#cb16-533" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-534"><a href="#cb16-534" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-535"><a href="#cb16-535" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Memory requirements                      : high.           </span></span>
+<span id="cb16-536"><a href="#cb16-536" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Checking of release information in files : yes</span></span>
+<span id="cb16-537"><a href="#cb16-537" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-538"><a href="#cb16-538" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Maximum Number of PCG Iterations ....................    4996</span></span>
+<span id="cb16-539"><a href="#cb16-539" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Stopping Criterion ............................. CD &lt;  0.1000E-04</span></span>
+<span id="cb16-540"><a href="#cb16-540" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-541"><a href="#cb16-541" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Calculate residuals : No.</span></span>
+<span id="cb16-542"><a href="#cb16-542" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-543"><a href="#cb16-543" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Standard solution files.</span></span>
+<span id="cb16-544"><a href="#cb16-544" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-545"><a href="#cb16-545" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-546"><a href="#cb16-546" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-547"><a href="#cb16-547" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_SOLVE: Start of Iteration                Time: 11:53:44.8  09.03.2022</span></span>
+<span id="cb16-548"><a href="#cb16-548" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-549"><a href="#cb16-549" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-550"><a href="#cb16-550" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-551"><a href="#cb16-551" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                              Iteration Statistics</span></span>
+<span id="cb16-552"><a href="#cb16-552" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                              --------------------</span></span>
+<span id="cb16-553"><a href="#cb16-553" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb16-554"><a href="#cb16-554" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                             Convergence Indicators</span></span>
+<span id="cb16-555"><a href="#cb16-555" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -----------------------------------------------------------------------------</span></span>
+<span id="cb16-556"><a href="#cb16-556" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ROUND        CA            CR            CM            CD        MAX.CHA.</span></span>
+<span id="cb16-557"><a href="#cb16-557" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  -------  ------------  ------------  ------------  ------------  ------------</span></span>
+<span id="cb16-558"><a href="#cb16-558" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Solution vector will be initialized to be zero</span></span>
+<span id="cb16-559"><a href="#cb16-559" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         rhs&#39; * rhs =    388920.593707353     </span></span>
+<span id="cb16-560"><a href="#cb16-560" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  animal rhs&#39; * rhs =    3649.14713829715     </span></span>
+<span id="cb16-561"><a href="#cb16-561" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        ------------------------------------------------------</span></span>
+<span id="cb16-562"><a href="#cb16-562" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        0     1.000         1.000         1.000         0.000         0.000    </span></span>
+<span id="cb16-563"><a href="#cb16-563" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        1    0.7388        0.7998E-01    0.4243         1.000       -0.2534    </span></span>
+<span id="cb16-564"><a href="#cb16-564" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2    0.5166        0.1824        0.3196        0.4524       -0.1344    </span></span>
+<span id="cb16-565"><a href="#cb16-565" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        3    0.4421        0.5349E-01    0.2407        0.3722       -0.1310    </span></span>
+<span id="cb16-566"><a href="#cb16-566" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        4    0.3302        0.6025E-01    0.1933        0.2109       -0.7634E-01</span></span>
+<span id="cb16-567"><a href="#cb16-567" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        5    0.4190        0.4118E-01    0.2097        0.2670        0.1091    </span></span>
+<span id="cb16-568"><a href="#cb16-568" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        6    0.2965        0.4202E-01    0.1670        0.1957       -0.9603E-01</span></span>
+<span id="cb16-569"><a href="#cb16-569" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        7    0.2897        0.2966E-01    0.1510        0.1600        0.7814E-01</span></span>
+<span id="cb16-570"><a href="#cb16-570" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        8    0.3543        0.3734E-01    0.1669        0.1669        0.9089E-01</span></span>
+<span id="cb16-571"><a href="#cb16-571" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        9    0.2698        0.2615E-01    0.1419        0.1589        0.8778E-01</span></span>
+<span id="cb16-572"><a href="#cb16-572" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       10    0.2889        0.3193E-01    0.1425        0.1158        0.7926E-01</span></span>
+<span id="cb16-573"><a href="#cb16-573" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       11    0.2867        0.2818E-01    0.1440        0.1484        0.1013    </span></span>
+<span id="cb16-574"><a href="#cb16-574" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       12    0.2237        0.2167E-01    0.1262        0.1037        0.7909E-01</span></span>
+<span id="cb16-575"><a href="#cb16-575" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       13    0.2309        0.2680E-01    0.1210        0.1062        0.8740E-01</span></span>
+<span id="cb16-576"><a href="#cb16-576" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       14    0.1846        0.2385E-01    0.1043        0.8507E-01    0.7317E-01</span></span>
+<span id="cb16-577"><a href="#cb16-577" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       15    0.2161        0.2187E-01    0.1125        0.8033E-01    0.6562E-01</span></span>
+<span id="cb16-578"><a href="#cb16-578" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       16    0.1693        0.2186E-01    0.9240E-01    0.7981E-01    0.6852E-01</span></span>
+<span id="cb16-579"><a href="#cb16-579" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       17    0.1718        0.1848E-01    0.8850E-01    0.5704E-01    0.4549E-01</span></span>
+<span id="cb16-580"><a href="#cb16-580" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       18    0.1668        0.3092E-01    0.9106E-01    0.6406E-01    0.6391E-01</span></span>
+<span id="cb16-581"><a href="#cb16-581" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       19    0.1617        0.1724E-01    0.8458E-01    0.5950E-01    0.4712E-01</span></span>
+<span id="cb16-582"><a href="#cb16-582" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       20    0.1299        0.2231E-01    0.7656E-01    0.5199E-01    0.3854E-01</span></span>
+<span id="cb16-583"><a href="#cb16-583" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       21    0.1396        0.1616E-01    0.7179E-01    0.5004E-01    0.4009E-01</span></span>
+<span id="cb16-584"><a href="#cb16-584" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       22    0.1198        0.1736E-01    0.6445E-01    0.3798E-01    0.2995E-01</span></span>
+<span id="cb16-585"><a href="#cb16-585" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       23    0.1166        0.1854E-01    0.6117E-01    0.3646E-01    0.3003E-01</span></span>
+<span id="cb16-586"><a href="#cb16-586" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       24    0.8597E-01    0.8887E-02    0.4900E-01    0.2995E-01    0.2939E-01</span></span>
+<span id="cb16-587"><a href="#cb16-587" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       25    0.1014        0.1350E-01    0.4998E-01    0.2357E-01    0.2499E-01</span></span>
+<span id="cb16-588"><a href="#cb16-588" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       26    0.7710E-01    0.7471E-02    0.4201E-01    0.2554E-01    0.2756E-01</span></span>
+<span id="cb16-589"><a href="#cb16-589" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       27    0.6789E-01    0.8829E-02    0.3620E-01    0.1670E-01    0.1956E-01</span></span>
+<span id="cb16-590"><a href="#cb16-590" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       28    0.5986E-01    0.6066E-02    0.3202E-01    0.1714E-01    0.1854E-01</span></span>
+<span id="cb16-591"><a href="#cb16-591" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       29    0.4634E-01    0.5066E-02    0.2450E-01    0.1048E-01    0.1242E-01</span></span>
+<span id="cb16-592"><a href="#cb16-592" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       30    0.4371E-01    0.4526E-02    0.2314E-01    0.9805E-02    0.1183E-01</span></span>
+<span id="cb16-593"><a href="#cb16-593" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       31    0.2984E-01    0.3172E-02    0.1697E-01    0.7967E-02    0.1016E-01</span></span>
+<span id="cb16-594"><a href="#cb16-594" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       32    0.3068E-01    0.3259E-02    0.1608E-01    0.5682E-02    0.8714E-02</span></span>
+<span id="cb16-595"><a href="#cb16-595" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       33    0.2267E-01    0.2204E-02    0.1206E-01    0.5434E-02   -0.8380E-02</span></span>
+<span id="cb16-596"><a href="#cb16-596" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       34    0.1952E-01    0.2071E-02    0.1071E-01    0.3536E-02   -0.5133E-02</span></span>
+<span id="cb16-597"><a href="#cb16-597" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       35    0.1784E-01    0.1741E-02    0.9354E-02    0.4033E-02   -0.6102E-02</span></span>
+<span id="cb16-598"><a href="#cb16-598" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       36    0.1390E-01    0.1381E-02    0.7427E-02    0.2565E-02   -0.4101E-02</span></span>
+<span id="cb16-599"><a href="#cb16-599" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       37    0.1309E-01    0.1274E-02    0.6982E-02    0.2696E-02    0.3566E-02</span></span>
+<span id="cb16-600"><a href="#cb16-600" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       38    0.9621E-02    0.9363E-03    0.5053E-02    0.2021E-02   -0.3125E-02</span></span>
+<span id="cb16-601"><a href="#cb16-601" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       39    0.9745E-02    0.9444E-03    0.5075E-02    0.1635E-02   -0.2417E-02</span></span>
+<span id="cb16-602"><a href="#cb16-602" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       40    0.7315E-02    0.7160E-03    0.3883E-02    0.1645E-02   -0.2241E-02</span></span>
+<span id="cb16-603"><a href="#cb16-603" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       41    0.6829E-02    0.6615E-03    0.3558E-02    0.1180E-02   -0.1792E-02</span></span>
+<span id="cb16-604"><a href="#cb16-604" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       42    0.5789E-02    0.5670E-03    0.3043E-02    0.1270E-02   -0.1981E-02</span></span>
+<span id="cb16-605"><a href="#cb16-605" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       43    0.4861E-02    0.4720E-03    0.2528E-02    0.8518E-03   -0.1441E-02</span></span>
+<span id="cb16-606"><a href="#cb16-606" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       44    0.4275E-02    0.4190E-03    0.2339E-02    0.9340E-03   -0.1595E-02</span></span>
+<span id="cb16-607"><a href="#cb16-607" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       45    0.3510E-02    0.3449E-03    0.1786E-02    0.7047E-03   -0.1267E-02</span></span>
+<span id="cb16-608"><a href="#cb16-608" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       46    0.3340E-02    0.3235E-03    0.1747E-02    0.5792E-03   -0.1063E-02</span></span>
+<span id="cb16-609"><a href="#cb16-609" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       47    0.2455E-02    0.2378E-03    0.1330E-02    0.5599E-03   -0.9729E-03</span></span>
+<span id="cb16-610"><a href="#cb16-610" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       48    0.2189E-02    0.2121E-03    0.1175E-02    0.3981E-03   -0.6837E-03</span></span>
+<span id="cb16-611"><a href="#cb16-611" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       49    0.1949E-02    0.1895E-03    0.1010E-02    0.3959E-03    0.7481E-03</span></span>
+<span id="cb16-612"><a href="#cb16-612" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       50    0.1543E-02    0.1510E-03    0.8303E-03    0.2835E-03    0.5322E-03</span></span>
+<span id="cb16-613"><a href="#cb16-613" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       51    0.1352E-02    0.1317E-03    0.7453E-03    0.2900E-03    0.5806E-03</span></span>
+<span id="cb16-614"><a href="#cb16-614" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       52    0.1057E-02    0.1024E-03    0.5684E-03    0.2171E-03    0.3911E-03</span></span>
+<span id="cb16-615"><a href="#cb16-615" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       53    0.1033E-02    0.1008E-03    0.5436E-03    0.1830E-03    0.2957E-03</span></span>
+<span id="cb16-616"><a href="#cb16-616" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       54    0.7452E-03    0.7228E-04    0.4031E-03    0.1665E-03   -0.2644E-03</span></span>
+<span id="cb16-617"><a href="#cb16-617" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       55    0.6694E-03    0.6493E-04    0.3664E-03    0.1227E-03   -0.1868E-03</span></span>
+<span id="cb16-618"><a href="#cb16-618" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       56    0.5778E-03    0.5598E-04    0.3067E-03    0.1261E-03   -0.1864E-03</span></span>
+<span id="cb16-619"><a href="#cb16-619" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       57    0.4685E-03    0.4551E-04    0.2505E-03    0.8271E-04   -0.1178E-03</span></span>
+<span id="cb16-620"><a href="#cb16-620" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       58    0.4278E-03    0.4145E-04    0.2312E-03    0.8989E-04    0.1318E-03</span></span>
+<span id="cb16-621"><a href="#cb16-621" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       59    0.3341E-03    0.3247E-04    0.1803E-03    0.6904E-04   -0.1069E-03</span></span>
+<span id="cb16-622"><a href="#cb16-622" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       60    0.3172E-03    0.3081E-04    0.1751E-03    0.6126E-04   -0.9621E-04</span></span>
+<span id="cb16-623"><a href="#cb16-623" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       61    0.2376E-03    0.2302E-04    0.1329E-03    0.5632E-04   -0.8813E-04</span></span>
+<span id="cb16-624"><a href="#cb16-624" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       62    0.2071E-03    0.2009E-04    0.1159E-03    0.4033E-04   -0.6227E-04</span></span>
+<span id="cb16-625"><a href="#cb16-625" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       63    0.1776E-03    0.1729E-04    0.9220E-04    0.3694E-04   -0.5586E-04</span></span>
+<span id="cb16-626"><a href="#cb16-626" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       64    0.1366E-03    0.1331E-04    0.7501E-04    0.2394E-04   -0.3858E-04</span></span>
+<span id="cb16-627"><a href="#cb16-627" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       65    0.1214E-03    0.1177E-04    0.6651E-04    0.2597E-04   -0.4407E-04</span></span>
+<span id="cb16-628"><a href="#cb16-628" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       66    0.8926E-04    0.8682E-05    0.4934E-04    0.1809E-04   -0.2674E-04</span></span>
+<span id="cb16-629"><a href="#cb16-629" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       67    0.9228E-04    0.8961E-05    0.4663E-04    0.1520E-04    0.2627E-04</span></span>
+<span id="cb16-630"><a href="#cb16-630" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       68    0.6218E-04    0.6039E-05    0.3428E-04    0.1360E-04    0.1946E-04</span></span>
+<span id="cb16-631"><a href="#cb16-631" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       69    0.5700E-04    0.5544E-05    0.3111E-04    0.1000E-04   -0.1682E-04</span></span>
+<span id="cb16-632"><a href="#cb16-632" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       70    0.5016E-04    0.4875E-05    0.2621E-04    0.1018E-04    0.1943E-04</span></span>
+<span id="cb16-633"><a href="#cb16-633" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       71    0.4023E-04    0.3898E-05    0.2187E-04    0.7051E-05   -0.9152E-05</span></span>
+<span id="cb16-634"><a href="#cb16-634" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       72    0.3673E-04    0.3576E-05    0.1973E-04    0.7906E-05    0.1300E-04</span></span>
+<span id="cb16-635"><a href="#cb16-635" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-636"><a href="#cb16-636" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Stopping criterion CD &lt; 0.1E-4 achieved in 72 iterations.</span></span>
+<span id="cb16-637"><a href="#cb16-637" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     </span><span class="al">NOTE</span><span class="co">: CD criterion must be met by two consecutive iterations!</span></span>
+<span id="cb16-638"><a href="#cb16-638" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-639"><a href="#cb16-639" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Solutions have converged according to CD criterion of the last iteration.</span></span>
+<span id="cb16-640"><a href="#cb16-640" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-641"><a href="#cb16-641" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-642"><a href="#cb16-642" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-643"><a href="#cb16-643" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_SOLVE: End of Iteration                  Time: 11:53:44.9  09.03.2022</span></span>
+<span id="cb16-644"><a href="#cb16-644" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-645"><a href="#cb16-645" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-646"><a href="#cb16-646" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-647"><a href="#cb16-647" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Solutions for First 20 Levels of Across-Block Fixed Effect:  1  sex     </span></span>
+<span id="cb16-648"><a href="#cb16-648" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      -----------------------------------------------------------------------</span></span>
+<span id="cb16-649"><a href="#cb16-649" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Fact.Trt _____Level_____    N-Obs     Eq-No    Solution     Factor</span></span>
+<span id="cb16-650"><a href="#cb16-650" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         1   1               2     2679      4996   -0.249026E-01 sex</span></span>
+<span id="cb16-651"><a href="#cb16-651" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-652"><a href="#cb16-652" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  First 20 Animal Solutions                                         </span></span>
+<span id="cb16-653"><a href="#cb16-653" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---------------------------------------------------------------------------</span></span>
+<span id="cb16-654"><a href="#cb16-654" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Fact.Trt __Animal-ID____ N-Desc  N-Obs     Eq-No    Solution     Factor</span></span>
+<span id="cb16-655"><a href="#cb16-655" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               1     10      1         1   -0.214221     animal</span></span>
+<span id="cb16-656"><a href="#cb16-656" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               2     30      1         2    0.109595     animal</span></span>
+<span id="cb16-657"><a href="#cb16-657" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               3     90      1         3    0.484530     animal</span></span>
+<span id="cb16-658"><a href="#cb16-658" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               4     10      1         4   -0.154316     animal</span></span>
+<span id="cb16-659"><a href="#cb16-659" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               5     20      1         5    0.766112E-01 animal</span></span>
+<span id="cb16-660"><a href="#cb16-660" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               6     20      1         6   -0.135484     animal</span></span>
+<span id="cb16-661"><a href="#cb16-661" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               7     20      1         7   -0.928442E-01 animal</span></span>
+<span id="cb16-662"><a href="#cb16-662" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               8     10      1         8   -0.596086E-02 animal</span></span>
+<span id="cb16-663"><a href="#cb16-663" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1               9     10      1         9   -0.130208E-01 animal</span></span>
+<span id="cb16-664"><a href="#cb16-664" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              10     60      1        10    0.180639     animal</span></span>
+<span id="cb16-665"><a href="#cb16-665" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              11     10      1        11   -0.239035     animal</span></span>
+<span id="cb16-666"><a href="#cb16-666" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              12     80      1        12    0.515498     animal</span></span>
+<span id="cb16-667"><a href="#cb16-667" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              13     20      1        13   -0.132385     animal</span></span>
+<span id="cb16-668"><a href="#cb16-668" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              14     40      1        14    0.797337E-01 animal</span></span>
+<span id="cb16-669"><a href="#cb16-669" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              15     10      1        15   -0.105973     animal</span></span>
+<span id="cb16-670"><a href="#cb16-670" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              16     10      1        16   -0.292545E-01 animal</span></span>
+<span id="cb16-671"><a href="#cb16-671" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              17     20      1        17   -0.149501     animal</span></span>
+<span id="cb16-672"><a href="#cb16-672" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              18     10      1        18   -0.162236     animal</span></span>
+<span id="cb16-673"><a href="#cb16-673" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              19     40      1        19    0.148609     animal</span></span>
+<span id="cb16-674"><a href="#cb16-674" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     1   1              20     10      1        20   -0.710837E-01 animal</span></span>
+<span id="cb16-675"><a href="#cb16-675" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-676"><a href="#cb16-676" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-677"><a href="#cb16-677" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-678"><a href="#cb16-678" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---------------------------------------------------------------------------</span></span>
+<span id="cb16-679"><a href="#cb16-679" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Description of Solution Files:                                    </span></span>
+<span id="cb16-680"><a href="#cb16-680" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---------------------------------------------------------------------------</span></span>
+<span id="cb16-681"><a href="#cb16-681" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-682"><a href="#cb16-682" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &quot;Solfix&quot;-File: Solutions for Across-Block Fixed Effects</span></span>
+<span id="cb16-683"><a href="#cb16-683" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-684"><a href="#cb16-684" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Column  |  Description                                </span></span>
+<span id="cb16-685"><a href="#cb16-685" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     ----------------------</span></span>
+<span id="cb16-686"><a href="#cb16-686" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        1       Factor Number                   </span></span>
+<span id="cb16-687"><a href="#cb16-687" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2       Trait Number                    </span></span>
+<span id="cb16-688"><a href="#cb16-688" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        3       Level Code                      </span></span>
+<span id="cb16-689"><a href="#cb16-689" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        4       Number of Observations          </span></span>
+<span id="cb16-690"><a href="#cb16-690" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        5       Solution                        </span></span>
+<span id="cb16-691"><a href="#cb16-691" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        6       Name of Factor                  </span></span>
+<span id="cb16-692"><a href="#cb16-692" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        7       Name of Trait                   </span></span>
+<span id="cb16-693"><a href="#cb16-693" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-694"><a href="#cb16-694" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-695"><a href="#cb16-695" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &quot;Solani&quot;-File: Solutions for Genetic Animal Effect     </span></span>
+<span id="cb16-696"><a href="#cb16-696" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-697"><a href="#cb16-697" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Column  |  Description                                </span></span>
+<span id="cb16-698"><a href="#cb16-698" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     ----------------------</span></span>
+<span id="cb16-699"><a href="#cb16-699" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        1       Animal ID                       </span></span>
+<span id="cb16-700"><a href="#cb16-700" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2       Number of Descendants           </span></span>
+<span id="cb16-701"><a href="#cb16-701" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        3       Number of Observations          </span></span>
+<span id="cb16-702"><a href="#cb16-702" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        4       Solution for Trait  1  phen       and Factor   animal</span></span>
+<span id="cb16-703"><a href="#cb16-703" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-704"><a href="#cb16-704" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-705"><a href="#cb16-705" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-706"><a href="#cb16-706" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-707"><a href="#cb16-707" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   MiX99_SOLVE:     --- D O N E ---               Time: 11:53:44.9  09.03.2022</span></span>
+<span id="cb16-708"><a href="#cb16-708" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ___________________________________________________________________________</span></span>
+<span id="cb16-709"><a href="#cb16-709" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb16-710"><a href="#cb16-710" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;          Copyright(C) 2019 Natural Resources Institute Finland (Luke)</span></span></code></pre></div>
+</div>
+<div id="problems-with-recoding-na-values" class="section level1">
+<h1>Problems with Recoding NA Values</h1>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tbl_qm <span class="ot">&lt;-</span> <span class="fu">read_qmsim</span>(<span class="at">ps_path =</span> s_qm_path)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cols(</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Progeny = col_double(),</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sire = col_double(),</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Dam = col_double(),</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sex = col_character(),</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   G = col_double(),</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   NMPrg = col_double(),</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   NFPrg = col_double(),</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   F = col_double(),</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Homo = col_double(),</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Phen = col_double(),</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Res = col_double(),</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Polygene = col_double(),</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   QTL = col_double(),</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Final_EBV = col_double()</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; )</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(tbl_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(tbl_qm, Progeny, Sex, Phen))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4,995 × 3</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Progeny Sex    Phen</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1       1 M        NA</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2       2 M        NA</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3       3 M        NA</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4       4 M        NA</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5       5 M        NA</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6       6 M        NA</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7       7 M        NA</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8       8 M        NA</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9       9 M        NA</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      10 M        NA</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4,985 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(tbl_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(tbl_data, <span class="at">Sex =</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(Sex, <span class="st">`</span><span class="at">M</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">`</span><span class="at">F</span><span class="st">`</span> <span class="ot">=</span> <span class="dv">2</span>)))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4,995 × 3</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Progeny   Sex  Phen</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1       1     1    NA</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2       2     1    NA</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3       3     1    NA</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4       4     1    NA</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5       5     1    NA</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6       6     1    NA</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7       7     1    NA</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8       8     1    NA</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9       9     1    NA</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      10     1    NA</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4,985 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pn_mvc       <span class="ot">=</span> <span class="sc">-</span><span class="fl">99999.0</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>(tbl_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(tbl_data, <span class="at">Phen =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(Phen, pn_mvc)))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4,995 × 3</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    Progeny   Sex   Phen</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1       1     1 -99999</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2       2     1 -99999</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3       3     1 -99999</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4       4     1 -99999</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5       5     1 -99999</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6       6     1 -99999</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7       7     1 -99999</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8       8     1 -99999</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9       9     1 -99999</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      10     1 -99999</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 4,985 more rows</span></span></code></pre></div>
+</div>
+<div id="clean-up" class="section level1">
+<h1>Clean Up</h1>
+<p>The generated files are removed by</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_delete</span>(s_tmp_dir)</span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

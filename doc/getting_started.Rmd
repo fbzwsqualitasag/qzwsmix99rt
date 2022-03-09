@@ -1,0 +1,189 @@
+---
+title: "Getting Started With qzwsmix99rt"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started With qzwsmix99rt}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+# library(qzwsmix99rt)
+devtools::load_all()
+```
+
+# Disclaimer
+This package contains a collection of R-functions useful to run MiX99 from within R. The pre-requisite for this is that MiX99 is installed in a path that is reachable via the path environment variable.
+
+
+# First Example
+This package contains an example with which the functionality can be tested. The following commands can be used to run the example analysis.
+
+```{r}
+test_dir <- prepare_example_p1()
+```
+
+This copies the required files for the analysis into a temporary directory. The following shows a list of these files
+
+```{r}
+list.files(path = test_dir)
+```
+
+The analysis is run with 
+
+```{r}
+s_log_file = file.path(test_dir, 
+                       paste0(format(Sys.time(), "%Y%m%d%H%M%S"),
+                              "_mix99.log", collapse = ""))
+run_mix99(ps_work_dir = test_dir, ps_log_file = s_log_file)
+```
+
+The results and a logfile are written to the working directory
+
+```{r}
+list.files(path = test_dir)
+```
+
+The content of the logfile can be inspected by
+
+```{r}
+con_log <- file(description = s_log_file)
+vec_log <- readLines(con = con_log)
+close(con = con_log)
+head(vec_log, 10)
+```
+
+The end of the logfile
+
+```{r}
+tail(vec_log)
+```
+
+
+After the analysis all results can be removed by
+
+```{r}
+fs::dir_delete(test_dir)
+```
+
+
+# Conversion of QMSim Output to MiX99 Input
+Given an output file from QMSim, the input files for MiX99 are generated. This is done by a conversion function. Currently this works only for simple animal models.
+
+```{r}
+s_qm_path <- system.file("extdata", "qmsim", "p1_data_001.txt", package = "qzwsmix99rt")
+(s_tmp_dir <- tempdir())
+s_out_dir <- file.path(s_tmp_dir, 'mix99_work')
+s_file_stem = paste0(format(Sys.time(), "%Y%m%d%H%M%S"),
+                                                         "_mix99", collapse = "")
+convert_qmsim_to_mix99(ps_qm_path = s_qm_path, 
+                       ps_out_dir = s_out_dir, 
+                       ps_file_stem = s_file_stem,
+                       pl_vcmp      = list(genetic_variance = 0.1, residual_variance = 0.9))
+list.files(path = s_out_dir)
+```
+
+The content of the generated data file can be inspected by
+
+```{r}
+s_data_path <- file.path(s_out_dir, paste(s_file_stem, ".dat", sep = ""))
+con_data <- file(s_data_path)
+vec_data <- readLines(con = con_data)
+close(con = con_data)
+head(vec_data)
+tail(vec_data)
+```
+
+
+The content of the pedigree can be viewed by
+
+```{r}
+s_ped_path <- file.path(s_out_dir, paste(s_file_stem, ".ped", sep = ""))
+con_ped <- file(s_ped_path)
+vec_ped <- readLines(con = con_ped)
+close(con = con_ped)
+head(vec_ped)
+tail(vec_ped)
+```
+
+The content of the parameter file
+
+```{r}
+s_var_path <- file.path(s_out_dir, paste(s_file_stem, ".var", sep = ""))
+con_var <- file(s_var_path)
+vec_var <- readLines(con = con_var)
+close(con = con_var)
+cat(paste0(vec_var, collapse = "\n"), "\n")
+```
+
+The clim file
+
+```{r}
+s_clm_path <- file.path(s_out_dir, paste(s_file_stem, ".clm", sep = ""))
+con_clm <- file(s_clm_path)
+vec_clm <- readLines(con = con_clm)
+close(con = con_clm)
+cat(paste0(vec_clm, collapse = "\n"), "\n")
+```
+
+
+# Running MiX99 on Prepared Data
+The data prepared so far are now used to run mix99
+
+```{r}
+s_mix99_log_path <- file.path(s_out_dir,
+                              paste0(format(Sys.time(), "%Y%m%d%H%M%S"),
+                                     "_mix99.log", collapse = ""))
+run_mix99(ps_work_dir = s_out_dir, ps_log_file = s_mix99_log_path)
+```
+
+The content of the working directory
+
+```{r}
+list.files(path = s_out_dir)
+```
+
+The log file is
+
+```{r}
+con_mix99_log <- file(s_mix99_log_path)
+vec_mix99_log <- readLines(con = con_mix99_log)
+close(con = con_mix99_log)
+cat(paste0(vec_mix99_log, collapse = "\n"), "\n")
+```
+
+
+# Problems with Recoding NA Values
+
+```{r}
+tbl_qm <- read_qmsim(ps_path = s_qm_path)
+```
+
+```{r}
+(tbl_data <- dplyr::select(tbl_qm, Progeny, Sex, Phen))
+```
+
+```{r}
+(tbl_data <- dplyr::mutate(tbl_data, Sex = dplyr::recode(Sex, `M` = 1, `F` = 2)))
+```
+
+```{r}
+pn_mvc       = -99999.0
+(tbl_data <- dplyr::mutate(tbl_data, Phen = tidyr::replace_na(Phen, pn_mvc)))
+
+```
+
+# Clean Up
+The generated files are removed by 
+
+```{r}
+fs::dir_delete(s_tmp_dir)
+```
+
