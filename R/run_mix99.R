@@ -1,6 +1,5 @@
 
 
-
 #' Run MiX99 Evaluation
 #'
 #' @description
@@ -13,13 +12,15 @@
 #'
 #' @examples
 #' \dontrun{
-#' tdir <- prepare_example_p1()
-#' run_mix99(ps_work_dir = tdir)
-#' fs::dir_delete(tdir)
+#' test_dir <- prepare_example_p1()
+#' run_mix99(ps_work_dir = test_dir)
+#' fs::dir_delete(test_dir)
 #' }
 #' @export run_mix99
 run_mix99 <- function(ps_work_dir,
-                      ps_log_file = paste0(format(Sys.time(), "%Y%m%d%H%M%S"), "_mix99.log", collapse = "")){
+                      ps_log_file = file.path(ps_work_dir,
+                                              paste0(format(Sys.time(), "%Y%m%d%H%M%S"),
+                                                     "_mix99.log", collapse = ""))){
   # determine clim file
   s_clm_file <- list.files(path = ps_work_dir, pattern = ".clm")
   # setup command
