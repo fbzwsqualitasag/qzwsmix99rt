@@ -15,5 +15,6 @@ Suggests:
 VignetteBuilder: knitr
 RoxygenNote: 7.1.2
 Imports: 
+    log4r,
     dplyr,
-    readr
+    readr (>= 2.1.2)
